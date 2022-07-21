@@ -20,7 +20,6 @@ public class ReversedArray {
 
         System.out.println("reversed array");
         System.out.println(Arrays.toString(arr));
-
     }
 
     private static int[] getArrayWithRandomDigits() {
@@ -33,6 +32,10 @@ public class ReversedArray {
 
     //Todo add your implementation
     private static int[] getReversedArray(int[] arr) {
-        return null;
+        int[] result = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            result[i] = arr[arr.length - 1 - i];
+        }
+        return result;
     }
 }
