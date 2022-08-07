@@ -1,42 +1,57 @@
+import java.util.Scanner;
+
 public class Reversed {
+        public static void main(String[] args) {
+            System.out.println("Enter to string\n");
+            Scanner scr = new Scanner(System.in);
+            String s = scr.nextLine();
 
-    public static void main(String[] args) {
+            String[] input = s.split(" ");
+            for (int i = 0; i < input.length; i++) {
+                input[i] = getReversedString(input[i]);
+            }
+            s = buildResult(input);
+            System.out.println();
+            System.out.println("String after revers\n\n" + s);
+        }
 
-        String str1 = "slava hello";
-        String str2 = "o1eh zinger!man";
-        System.out.println(getReverseString(str1));
-    }
+        public static String getReversedString(String input) {
+            char[] chars = input.toCharArray();
+            String wordReversed = String.valueOf(getReversedLettersArr(chars));
+            StringBuilder wordTwoResult = new StringBuilder();
+            char[] wordReversedArray = wordReversed.toCharArray();
 
-    public static String getReverseString(String input) {
-        String[] words = input.split(" ");
-        String firstWord = words[0];
-        String secondWord = words[1];
-        char[] reversedLaterOne = new char[firstWord.length()];
-        char[] lettersOne = firstWord.toCharArray();
-        char[] reversedLaterTwo = new char[secondWord.length()];
-        char[] lettersTwo = secondWord.toCharArray();
-
-        for (int i = 0; i < lettersOne.length; i++) {
-            boolean isLeterOne = Character.isLetter(lettersOne[i]);
-            if (isLeterOne) {
-                for (int j = 0; j < lettersOne.length; j++) {
-                    reversedLaterOne[j] = lettersOne[lettersOne.length - 1 - j];
+            for (int i = 0, j = 0; i < chars.length; i++) {
+                if (!Character.isLetter(chars[i])) {
+                    wordTwoResult.append(chars[i]);
+                    j++;
+                } else {
+                    wordTwoResult.append(wordReversedArray[i - j]);
                 }
             }
+            return wordTwoResult.toString();
         }
-        for (int i = 0; i < lettersTwo.length; i++) {
-            boolean isLeterTwo = Character.isLetter(lettersTwo[i]);
-            if (isLeterTwo) {
-                for (int j = 0; j < lettersTwo.length; j++) {
-                    reversedLaterTwo[j] = lettersTwo[lettersTwo.length - 1 - j];
+
+        public static char[] getReversedLettersArr(char[] chars) {
+            StringBuilder word = new StringBuilder();
+
+
+            for (char aChar : chars) {
+                if (Character.isLetter(aChar)) {
+                    word.append(aChar);
                 }
             }
+            return word.reverse().toString().toCharArray();
         }
-        String firstReverse = new String(reversedLaterOne);
-        String secondReverse = new String(reversedLaterTwo);
-        String result = firstReverse + " " + secondReverse;
-        return result;
+
+        public static String buildResult(String[] input) {
+            StringBuilder result = new StringBuilder();
+            for (String s : input) {
+                result.append(s);
+                result.append("  ");
+            }
+            return result.toString();
+        }
     }
-}
 
 
