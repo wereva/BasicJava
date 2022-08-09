@@ -16,9 +16,7 @@ public class ReplaceValue {
         int y;
 
         //Todo put there you code;
-        y = x;
-        x = z;
-        z = y;
+
 
         System.out.println(x == 15 && z == 10);
     }
