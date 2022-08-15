@@ -7,19 +7,17 @@ public class Reversed {
         public static void main(String[] args) {
             System.out.println("Enter to string\n");
             Scanner scr = new Scanner(System.in);
-            String s = scr.nextLine();
+            String input = scr.nextLine();
 
-            String[] input = s.split(" ");
-            for (int i = 0; i < input.length; i++) {
-                input[i] = getReversedString(input[i]);
+            String[] word = input.split(" ");
+            for (int i = 0; i < word.length; i++) {
+                word[i] = getReversedWords(word[i]);
             }
-            s = buildResult(input);
-            System.out.println();
-            System.out.println("String after revers\n\n" + s);
+            System.out.println("\nString after revers\n\n" + buildResult(word));
         }
 
-    public static String getReversedString(String input) {
-        char[] chars = input.toCharArray();
+    public static String getReversedWords(String word) {
+        char[] chars = word.toCharArray();
         String wordReversed = String.valueOf(getReversedLettersArr(chars));
         StringBuilder wordResult = new StringBuilder();
         char[] wordReversedArray = wordReversed.toCharArray();
@@ -38,10 +36,9 @@ public class Reversed {
         public static char[] getReversedLettersArr(char[] chars) {
             StringBuilder word = new StringBuilder();
 
-
-            for (char aChar : chars) {
-                if (Character.isLetter(aChar)) {
-                    word.append(aChar);
+            for (char currentChar : chars) {
+                if (Character.isLetter(currentChar)) {
+                    word.append(currentChar);
                 }
             }
             return word.reverse().toString().toCharArray();
