@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Reversed {
 
         public static void main(String[] args) {
-            System.out.println("Enter to string\n");
-            Scanner scr = new Scanner(System.in);
-            String input = scr.nextLine();
+           System.out.println("Enter to string\n");
+           Scanner scr = new Scanner(System.in);
+           String input = scr.nextLine();
 
             String[] word = input.split(" ");
             for (int i = 0; i < word.length; i++) {
@@ -49,8 +49,9 @@ public class Reversed {
             for (String s : input) {
                 result.append(s);
                 result.append(" ");
+
             }
-            return result.toString();
+            return result.toString().trim();
         }
     }
 
