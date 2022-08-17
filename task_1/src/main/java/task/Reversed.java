@@ -5,18 +5,22 @@ import java.util.Scanner;
 public class Reversed {
 
         public static void main(String[] args) {
-           System.out.println("Enter to string\n");
-           Scanner scr = new Scanner(System.in);
-           String input = scr.nextLine();
-
-            String[] word = input.split(" ");
-            for (int i = 0; i < word.length; i++) {
-                word[i] = getReversedWords(word[i]);
-            }
+            System.out.println("Enter to string\n");
+            Scanner scr = new Scanner(System.in);
+            String input = scr.nextLine();
+            String[] word = splitStringIntoWords(input);
             System.out.println("\nString after revers\n\n" + buildResult(word));
         }
 
-    public static String getReversedWords(String word) {
+    public static String[] splitStringIntoWords(String input) {
+        String[] word = input.split(" ");
+        for (int i = 0; i < word.length; i++) {
+            word[i] = getReversedWord(word[i]);
+        }
+        return word;
+    }
+
+    public static String getReversedWord(String word) {
         char[] chars = word.toCharArray();
         String wordReversed = String.valueOf(getReversedLettersArr(chars));
         StringBuilder wordResult = new StringBuilder();
