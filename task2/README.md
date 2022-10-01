@@ -18,5 +18,5 @@ Note:
 and apply this knowledge to the tasks.
 * also, before starting, find in google Java Code Conventions, read it and apply it in the implementation.
 * all classes should be demonstrated in Main class. 
-* foe each task create a separate package in training.arrays.radionov package
+* foe each task create a separate package in training.arrays.rodionov package
 * use access modifiers in right way with methods and variables.
